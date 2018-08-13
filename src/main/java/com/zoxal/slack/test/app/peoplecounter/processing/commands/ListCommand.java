@@ -16,6 +16,11 @@ public class ListCommand implements Command {
     @Override
     public InvocationResponse process(InvocationRequest invocationRequest) {
         Collection<String> registeredUsers = Storage.getDefaultStorage().getRegisteredUsers();
-        return new InvocationResponse(String.join(", ", registeredUsers));
+        return new InvocationResponse(
+            ((registeredUsers.size() < 2) ?
+                    registeredUsers.size() + " user: "
+                    : registeredUsers.size() + " users: ") +
+            String.join(", ", registeredUsers)
+        );
     }
 }
