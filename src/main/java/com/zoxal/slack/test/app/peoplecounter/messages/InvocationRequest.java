@@ -1,9 +1,10 @@
 package com.zoxal.slack.test.app.peoplecounter.messages;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.zoxal.slack.test.app.peoplecounter.processing.commands.Command;
 
 /**
- * Insert description vere
+ * Invocation message for peo
  *
  * @author Mike
  * @version 08/12/2018
@@ -18,7 +19,6 @@ public class InvocationRequest {
 
     @JsonProperty("user_name")
     private String userName;
-
 
     public String getCommand() {
         return command;
@@ -50,5 +50,15 @@ public class InvocationRequest {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    @Override
+    public String toString() {
+        return "InvocationRequest{" +
+                "command='" + command + '\'' +
+                ", text='" + text + '\'' +
+                ", userId='" + userId + '\'' +
+                ", userName='" + userName + '\'' +
+                '}';
     }
 }
